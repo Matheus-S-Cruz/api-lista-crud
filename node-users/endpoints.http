@@ -1,21 +1,17 @@
+GET http://localhost:3333/
 
 ###
 
-GET http://localhost:3333/users
+GET http://localhost:3333/produtos
 
 ###
 
-GET http://localhost:3333/users/aaa
-
-###
-
-POST http://localhost:3333/users
+POST http://localhost:3333/produtos
 Content-Type: application/json
 
 {
-    "name": "ORELHA",
-    "password": "12345",
-    "profile": "COMUM"
+    "name": "The Handy",
+    "descricao": "Ótima para se divertir"
 }
 
 ###
