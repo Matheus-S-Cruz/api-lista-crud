@@ -1,11 +1,9 @@
-
-import { fastify } from 'fastify'
-import cors from '@fastify/cors'
-import { DatabasePostgres } from './database-postgres.js'
-import { DatabaseProdutos } from './database.js';
+import { fastify } from 'fastify';
+import cors from '@fastify/cors';
+import { DatabasePostgres } from './database-postgres.js';
 
 const server = fastify();
-const database = new DatabaseProdutos;
+const databasePostgres = new DatabasePostgres;
 
 // CORS
 server.register(cors, {
@@ -18,26 +16,32 @@ server.register(cors, {
 // CREATE
 server.post('/produtos', async (request, reply) => {
     const body = request.body;
-    await database.createProduto(body);
-    return 201
+    await databasePostgres.createProduto(body);
+    return reply.status(201).send();
 })
 
-
 // READ
-server.get('/', () => {
-    return 'Ian é Idiota';
+server.get('/produtos', async () => {
+    const produtos = await databasePostgres.listProdutos();
+    return produtos;
 });
-
-server.get('/produtos', () => {
-    return 'Ian é Muito Idiota';
-});
-
 
 // UPDATE
+server.put('/produtos/:id', async (request, reply) => {
+    const produtoID = request.params.id;
+    const body = request.body;
+    await databasePostgres.updateProduto(produtoID, body);
 
+    return reply.status(204).send();
+})
 
 // DELETE
+server.delete('/produtos/:id', async (request, reply) => {
+    const produtoID = request.params.id;
+    await databasePostgres.deleteProduto(produtoID);
 
+    return reply.status(204).send();
+})
 
 server.listen({
     port: 3333

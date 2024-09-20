@@ -1,11 +1,9 @@
-GET http://localhost:3333/
-
-###
-
+### Listar produtos
 GET http://localhost:3333/produtos
 
 ###
 
+### Criar produto
 POST http://localhost:3333/produtos
 Content-Type: application/json
 
@@ -16,15 +14,16 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3333/users/999af5d0-3777-4e02-834d-9b582bc8de68
+### Atualizar produto
+PUT http://localhost:3333/produtos/4151cdae-838d-4f11-b9a2-3d447e4310d4
 Content-Type: application/json
 
 {
-    "name": "ORELHA",
-    "password": "123",
-    "profile": "ADM"
+    "name": "O Mãozinha",
+    "descricao": "Produto de alta qualidade"
 }
 
 ###
 
-DELETE http://localhost:3333/users/8cf1e65c-8c4a-4a74-b63b-dcc5ab1e0c12
+### Deletar produto
+DELETE http://localhost:3333/produtos/4151cdae-838d-4f11-b9a2-3d447e4310d4
