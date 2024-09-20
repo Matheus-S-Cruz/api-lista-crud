@@ -10,7 +10,7 @@ const sql = postgres({
 
 async function createDatabase() {
   try {
-    await sql`CREATE DATABASE users;`; 
+    await sql`CREATE DATABASE produtos;`; 
 
     console.log('Database created successfully');
   } catch (error) {

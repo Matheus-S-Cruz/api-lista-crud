@@ -8,22 +8,22 @@ POST http://localhost:3333/produtos
 Content-Type: application/json
 
 {
-    "name": "The Handy",
-    "descricao": "Ótima para se divertir"
+    "name": "Insane Clown",
+    "descricao": "Pra treinar potente!"
 }
 
 ###
 
 ### Atualizar produto
-PUT http://localhost:3333/produtos/4151cdae-838d-4f11-b9a2-3d447e4310d4
+PUT http://localhost:3333/produtos/id
 Content-Type: application/json
 
 {
-    "name": "O Mãozinha",
-    "descricao": "Produto de alta qualidade"
+    "name": "Palhaço Insano",
+    "descricao": "Pré treino mais forte do mercado."
 }
 
 ###
 
 ### Deletar produto
-DELETE http://localhost:3333/produtos/4151cdae-838d-4f11-b9a2-3d447e4310d4
+DELETE http://localhost:3333/produtos/id
