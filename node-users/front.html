@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras</title>
+</head>
+<body>
+    
+    <script>
+        async function pegarProdutos(){
+            const resposta = await fetch('http://localhost:3333/produtos', {
+                method: 'GET'
+            })
+        const produtos = await resposta.json();
+        console.log(produtos);
+    }
+
+    pegarProdutos();
+    </script>
+</body>
+</html>
